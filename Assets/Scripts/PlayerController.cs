@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,43 @@ public class PlayerController : MonoBehaviour
 {
 	[SerializeField]
 	private float m_speed;
+	private int m_heart;
 	private bool m_FacingRight = true;
+	private LevelSystem levelSystem;
+	private PlayerSkills playerSkills;
+	private void Awake()
+    {
+		levelSystem = new LevelSystem();
+		playerSkills = new PlayerSkills();
+		levelSystem.OnLevelChanged += LevelSystem_OnLevelChanged;
+		playerSkills.OnSkillUnlocked += PlayerSkills_OnSkillUnlocked;
+	}
+
+	private void PlayerSkills_OnSkillUnlocked(object sender, PlayerSkills.OnSkillUnlockedEventArgs e)
+	{
+		switch (e.skillType)
+		{
+			case PlayerSkills.SkillType.MoveSpeed_1:
+				SetMovementSpeed(65f);
+				break;
+			case PlayerSkills.SkillType.MoveSpeed_2:
+				SetMovementSpeed(80f);
+				break;
+			case PlayerSkills.SkillType.HealthMax_1:
+				IncreaseHeart(1);
+				break;
+			case PlayerSkills.SkillType.HealthMax_2:
+				IncreaseHeart(2);
+				break;
+		}
+	}
+
+	private void LevelSystem_OnLevelChanged(object sender, EventArgs e)
+	{
+		//PlayAnimation
+
+	}
+
 	private void Flip()
 	{
 		// Switch the way the player is labelled as facing.
@@ -32,4 +69,13 @@ public class PlayerController : MonoBehaviour
 
 		transform.Translate(scaledMovement);
 	}
+
+	private void SetMovementSpeed(float speed)
+    {
+		m_speed = speed;
+    }
+	private void IncreaseHeart(int amount)
+    {
+		m_heart += amount;
+    }
 }

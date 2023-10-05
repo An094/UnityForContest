@@ -97,6 +97,8 @@ GameObject:
   - component: {fileID: 4294928011614240299}
   - component: {fileID: 3069202562453997709}
   - component: {fileID: 3871695652505848798}
+  - component: {fileID: 7250240109697323131}
+  - component: {fileID: 3452729219132043052}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -205,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c31c1b57981733f4d8bc303585945c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 3
+  m_speed: 2
 --- !u!114 &3871695652505848798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,3 +221,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AimingSprite: {fileID: 2380462025210911332}
+--- !u!50 &7250240109697323131
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966598012054762684}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!70 &3452729219132043052
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966598012054762684}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0024986626, y: -0.00049972534}
+  m_Size: {x: 0.11306818, y: 0.20102091}
+  m_Direction: 0
